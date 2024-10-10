@@ -25,6 +25,7 @@ public class Application {
     CommandLineRunner animal() {
         return args -> {
             Animal animal = new Animal(
+                    12,
                     "my puppy",
                     LocalDateTime.now(),
                     "dog",

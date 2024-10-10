@@ -19,20 +19,29 @@ public class AnimalRepository {
         return animals;
     }
 
+    Animal findById(Integer id) {
+        return animals.stream()
+                .filter(animal -> animal.id() == id)
+                .findFirst()
+                .get();
+    }
+
     // Do some initialization for the class
     @PostConstruct
     public void init() {
         animals.add(new Animal(
-            "Osin",
-            LocalDateTime.now().minus(10, ChronoUnit.YEARS),
-            "Dog",
-            new Location("Helsinki", List.of(0.45, 0.54))
+                1,
+                "Osin",
+                 LocalDateTime.now().minus(10, ChronoUnit.YEARS),
+                 "Dog",
+                new Location("Helsinki", List.of(0.45, 0.54))
         ));
         animals.add(new Animal(
-            "Seppo",
-            LocalDateTime.now().minus(10, ChronoUnit.MONTHS),
-            "Cat",
-            new Location("Helsinki", List.of(0.45, 0.54))
+                2,
+                "Seppo",
+                LocalDateTime.now().minus(10, ChronoUnit.MONTHS),
+                "Cat",
+                new Location("Helsinki", List.of(0.45, 0.54))
         ));
 
     }
