@@ -1,5 +1,6 @@
 package application.animals.animal;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -38,14 +39,14 @@ public class AnimalController {
     // post
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    void create(@RequestBody Animal animal) {  // tell Spring that it's coming as a request body @RequestBody
+    void create(@Valid @RequestBody Animal animal) {  // tell Spring that it's coming as a request body @RequestBody
         animalRepository.create(animal);
     }
 
     // put
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    void update(@RequestBody Animal animal, @PathVariable Integer id) {
+    void update(@Valid @RequestBody Animal animal, @PathVariable Integer id) {
         animalRepository.update(animal, id);
     }
 

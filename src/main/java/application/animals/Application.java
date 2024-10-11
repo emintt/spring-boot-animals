@@ -29,7 +29,7 @@ public class Application {
                     "my puppy",
                     LocalDateTime.now(),
                     "dog",
-                    new Location("Helsinki", List.of(0.45, 0.54)));
+                    new Location("Point", List.of(0.45, 0.54)));
             log.info("my animal" + animal);
         };
     }
