@@ -1,11 +1,11 @@
 package application.animals.animal;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/animals")
@@ -26,8 +26,35 @@ public class AnimalController {
 
     @GetMapping("/{id}")
     Animal findById(@PathVariable Integer id) {
-        return animalRepository.findById(id);
+
+        Optional<Animal> animal = animalRepository.findById(id);
+        if(animal.isEmpty()) {
+            throw new AnimalNotFoundException();
+        }
+
+        return animal.get();
     }
 
+    // post
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("")
+    void create(@RequestBody Animal animal) {  // tell Spring that it's coming as a request body @RequestBody
+        animalRepository.create(animal);
+    }
+
+    // put
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{id}")
+    void update(@RequestBody Animal animal, @PathVariable Integer id) {
+        animalRepository.update(animal, id);
+    }
+
+
+    // delete
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable Integer id) {
+        animalRepository.delete(id);
+    }
 
 }

@@ -2,11 +2,14 @@ package application.animals.animal;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.swing.text.html.Option;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 // tell spring this anno is gonna in charge of this class, so Spring has an instance on this class
@@ -19,11 +22,25 @@ public class AnimalRepository {
         return animals;
     }
 
-    Animal findById(Integer id) {
+    Optional<Animal> findById(Integer id) {
         return animals.stream()
                 .filter(animal -> animal.id() == id)
-                .findFirst()
-                .get();
+                .findFirst();
+    }
+
+    void create(Animal animal) {
+        animals.add(animal);
+    }
+
+    void update(Animal animal, Integer id) {
+        Optional<Animal> existingAnimal = findById(id);
+        if (existingAnimal.isPresent()) {
+            animals.set(animals.indexOf(existingAnimal.get()), animal);
+        }
+    }
+
+    void delete(Integer id) {
+        animals.removeIf(animal -> animal.id().equals(id));
     }
 
     // Do some initialization for the class
