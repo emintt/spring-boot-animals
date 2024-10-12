@@ -1,7 +1,7 @@
-package application.animals;
+package application.media;
 
-import application.animals.animal.Animal;
-import application.animals.animal.Location;
+import application.media.media.Media;
+import application.media.media.Location;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -22,15 +22,10 @@ public class Application {
     }
 
     @Bean
-    CommandLineRunner animal() {
+    CommandLineRunner media() {
         return args -> {
-            Animal animal = new Animal(
-                    12,
-                    "my puppy",
-                    LocalDateTime.now(),
-                    "dog",
-                    new Location("Point", List.of(0.45, 0.54)));
-            log.info("my animal" + animal);
+
+            log.info("my media" );
         };
     }
 

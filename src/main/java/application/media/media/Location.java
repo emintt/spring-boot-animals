@@ -1,4 +1,4 @@
-package application.animals.animal;
+package application.media.media;
 
 import jakarta.validation.constraints.NotEmpty;
 
