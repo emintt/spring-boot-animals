@@ -63,6 +63,14 @@ public class MediaRepository {
         Assert.state(updated == 1, "Failed to delete media " + id);
     }
 
+    public int count() {
+        return jdbcClient.sql("SELECT * FROM Media").query().listOfRows().size();
+    }
+
+    public void saveAll(List<Media> mediaItems) {
+        mediaItems.stream().forEach(this::create);
+    }
+
 
 
 
