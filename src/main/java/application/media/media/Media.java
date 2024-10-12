@@ -20,7 +20,6 @@ public record Media(
         String title,
         @NotNull
         String description,
-        @NotNull
         LocalDateTime createdAt
 ) {
 

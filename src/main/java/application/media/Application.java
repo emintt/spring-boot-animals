@@ -25,7 +25,7 @@ public class Application {
     CommandLineRunner media() {
         return args -> {
 
-            log.info("my media" );
+            log.info("my media" + LocalDateTime.now() );
         };
     }
 

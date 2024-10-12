@@ -1,0 +1,2 @@
+-- INSERT INTO Media (media_id, user_id, filename, filesize, title, description, media_type, created_at)
+-- VALUES (1, 1, 'ffd8.jpg', 887574, 'Favorite drink', 'my favourite drink', 'image/jpeg', '2024-10-12T13:14:05.114971200');
