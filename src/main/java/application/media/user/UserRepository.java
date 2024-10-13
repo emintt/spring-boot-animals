@@ -25,7 +25,7 @@ public class UserRepository {
     }
 
     public Optional<User> findById(Integer id) {
-        return jdbcClient.sql("SELECT user_id, username, email, user_level_id, created_at FROM User WHERE user_id = :id")
+        return jdbcClient.sql("SELECT user_id, '*****' AS password,username, email, user_level_id, created_at FROM User WHERE user_id = :id")
                 .param("id", id)
                 .query(User.class)
                 .optional();
