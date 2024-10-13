@@ -1,6 +1,14 @@
 DROP DATABASE IF EXISTS MediaApp;
 CREATE DATABASE MediaApp;
 USE MediaApp;
+CREATE TABLE User (
+   user_id INT AUTO_INCREMENT PRIMARY KEY,
+   username VARCHAR(50) NOT NULL UNIQUE,
+   password VARCHAR(255) NOT NULL,
+   email VARCHAR(100) NOT NULL UNIQUE,
+   user_level_id INT,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 CREATE TABLE Media (
     media_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -9,8 +17,8 @@ CREATE TABLE Media (
     media_type VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     description VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-#     FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
 
 

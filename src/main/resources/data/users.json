@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "username": "john_doe",
+      "password": "password123",
+      "email": "john.doe@example.com",
+      "userLevelId": 1
+    },
+    {
+      "username": "jane_smith",
+      "password": "password456",
+      "email": "jane.smith@example.com",
+      "userLevelId": 2
+    }
+  ]
+}

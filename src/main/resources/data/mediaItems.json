@@ -2,7 +2,7 @@
   "mediaItems": [
     {
       "mediaId": 1,
-      "userId": 101,
+      "userId": 1,
       "filename": "beach_sunset.jpg",
       "filesize": 204800,
       "mediaType": "image",
@@ -12,7 +12,7 @@
     },
     {
       "mediaId": 2,
-      "userId": 102,
+      "userId": 2,
       "filename": "mountain_peak.jpg",
       "filesize": 512000,
       "mediaType": "image",
@@ -22,7 +22,7 @@
     },
     {
       "mediaId": 3,
-      "userId": 101,
+      "userId": 1,
       "filename": "forest_trail.jpg",
       "filesize": 102400,
       "mediaType": "image",
@@ -32,7 +32,7 @@
     },
     {
       "mediaId": 4,
-      "userId": 103,
+      "userId": 1,
       "filename": "cityscape.jpg",
       "filesize": 307200,
       "mediaType": "image",
@@ -42,7 +42,7 @@
     },
     {
       "mediaId": 5,
-      "userId": 104,
+      "userId": 1,
       "filename": "river_side.jpg",
       "filesize": 256000,
       "mediaType": "image",
@@ -52,7 +52,7 @@
     },
     {
       "mediaId": 6,
-      "userId": 105,
+      "userId": 2,
       "filename": "snowy_mountain.jpg",
       "filesize": 409600,
       "mediaType": "image",
@@ -62,7 +62,7 @@
     },
     {
       "mediaId": 7,
-      "userId": 106,
+      "userId": 1,
       "filename": "desert_dunes.jpg",
       "filesize": 76800,
       "mediaType": "image",
@@ -72,7 +72,7 @@
     },
     {
       "mediaId": 8,
-      "userId": 107,
+      "userId": 2,
       "filename": "waterfall.jpg",
       "filesize": 512000,
       "mediaType": "image",
@@ -82,7 +82,7 @@
     },
     {
       "mediaId": 9,
-      "userId": 108,
+      "userId": 1,
       "filename": "lake_view.jpg",
       "filesize": 204800,
       "mediaType": "image",
@@ -92,7 +92,7 @@
     },
     {
       "mediaId": 10,
-      "userId": 109,
+      "userId": 2,
       "filename": "autumn_forest.jpg",
       "filesize": 153600,
       "mediaType": "image",

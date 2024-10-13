@@ -27,7 +27,7 @@ public class MediaRepository {
     }
 
     public List<Media> findAll() {
-        return jdbcClient.sql("SELECT * FROM media")
+        return jdbcClient.sql("SELECT * FROM Media")
                 .query(Media.class)
                 .list();
     }
@@ -40,8 +40,8 @@ public class MediaRepository {
     }
 
     public void create (Media media) {
-        var updated = jdbcClient.sql("INSERT INTO Media (media_id, filename, filesize,  media_type, title, description, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
-                .params(List.of(media.mediaId(), media.filename(), media.filesize(), media.mediaType(), media.title(), media.description(), media.userId(), media.createdAt()))
+        var updated = jdbcClient.sql("INSERT INTO Media (filename, filesize,  media_type, title, description, user_id) VALUES (?, ?, ?, ?, ?, ?)")
+                .params(List.of( media.filename(), media.filesize(), media.mediaType(), media.title(), media.description(), media.userId()))
                 .update();
 
         Assert.state(updated == 1, "Failed to create media " + media.title());

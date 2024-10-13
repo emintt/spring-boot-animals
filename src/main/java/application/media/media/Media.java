@@ -16,16 +16,12 @@ public record Media(
         Integer filesize,
         @NotNull
         String mediaType,
+        @Size(min = 2, max = 255)
         @NotNull
         String title,
+        @Size(min = 2, max = 255)
         @NotNull
         String description,
         LocalDateTime createdAt
 ) {
-
-        public Media {
-                if(createdAt == null) {
-                        createdAt = LocalDateTime.now();
-                }
-        }
 }
