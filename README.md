@@ -5,7 +5,7 @@
 
 2. The API is implemented by using Java Spring Boot and MariaDB
 3. Additional features: get media items by user id
-4.Documentation:
+4. Documentation
 
 - Link: https://users.metropolia.fi/~thitng/spring-media-doc/html2-client-generated/
 
