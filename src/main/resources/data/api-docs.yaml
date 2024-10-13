@@ -1,0 +1,286 @@
+openapi: 3.0.1
+info:
+  title: Spring boot media app
+  version: "1.0"
+servers:
+  - url: http://localhost:8080
+    description: Local environment
+paths:
+  /api/user/{id}:
+    get:
+      tags:
+        - user-controller
+      summary: Get a user by id
+      operationId: findById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: success
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+        "404":
+          description: user not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags:
+        - user-controller
+      summary: Modify a user
+      operationId: update
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "204":
+          description: success
+        "400":
+          description: bad request
+    delete:
+      tags:
+        - user-controller
+      summary: Delete a user
+      operationId: delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: success
+  /api/media/{id}:
+    get:
+      tags:
+        - media-controller
+      summary: Get media item by id
+      operationId: findById_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: success
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Media'
+        "404":
+          description: media not found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Media'
+    put:
+      tags:
+        - media-controller
+      summary: Modify a media
+      operationId: update_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Media'
+        required: true
+      responses:
+        "204":
+          description: success
+        "400":
+          description: bad request
+    delete:
+      tags:
+        - media-controller
+      summary: Delete a media
+      operationId: delete_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "204":
+          description: success
+  /api/user:
+    get:
+      tags:
+        - user-controller
+      summary: Get all users
+      operationId: findAll
+      responses:
+        "200":
+          description: success
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags:
+        - user-controller
+      summary: Create a user
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "201":
+          description: success
+        "400":
+          description: bad request
+  /api/media:
+    get:
+      tags:
+        - media-controller
+      summary: Get all media items
+      operationId: findAll_1
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Media'
+    post:
+      tags:
+        - media-controller
+      summary: Create a media
+      operationId: create_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Media'
+        required: true
+      responses:
+        "201":
+          description: success
+        "400":
+          description: bad request
+  /api/media/user/{id}:
+    get:
+      tags:
+        - media-controller
+      summary: Get all media items by user id
+      operationId: findByUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: success
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Media'
+        "404":
+          description: media not found
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Media'
+components:
+  schemas:
+    User:
+      required:
+        - password
+        - username
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int32
+        username:
+          type: string
+        password:
+          maxLength: 2147483647
+          minLength: 5
+          type: string
+        email:
+          type: string
+        userLevelId:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-time
+    Media:
+      required:
+        - description
+        - filename
+        - filesize
+        - mediaType
+        - title
+      type: object
+      properties:
+        mediaId:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int32
+        filename:
+          type: string
+        filesize:
+          type: integer
+          format: int32
+        mediaType:
+          type: string
+        title:
+          maxLength: 255
+          minLength: 2
+          type: string
+        description:
+          maxLength: 255
+          minLength: 2
+          type: string
+        createdAt:
+          type: string
+          format: date-time

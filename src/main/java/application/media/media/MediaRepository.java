@@ -58,6 +58,13 @@ public class MediaRepository {
         Assert.state(updated == 1, "Failed to delete media " + id);
     }
 
+    public List<Media> findMediaItemsByUser(Integer userId) {
+        return jdbcClient.sql("SELECT media_id, user_id, filename, filesize, media_type, title, description, created_at FROM Media WHERE user_id = :id")
+                .param("id", userId)
+                .query(Media.class)
+                .list();
+    }
+
     public int count() {
         return jdbcClient.sql("SELECT * FROM Media").query().listOfRows().size();
     }
