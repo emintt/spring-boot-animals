@@ -1,8 +1,13 @@
 
+1. Tutorials: 
 
+- [Spring Boot REST API Tutorial 1](https://www.youtube.com/watch?v=31KTdfRH6nY)
 
-Dokumentaatioon:
+2. The API is implemented by using Java Spring Boot and MariaDB
+3. Additional features: get media items by user id
+4.Documentation:
 
-- Linkki: https://users.metropolia.fi/~thitng/spring-media-doc/html2-client-generated/
+- Link: https://users.metropolia.fi/~thitng/spring-media-doc/html2-client-generated/
 
-- [yaml dokumentaation tiedosto](https://github.com/user/repo/blob/branch/other_file.md)
+- [yaml file](https://github.com/emintt/spring-boot-media/blob/main/src/main/resources/data/api-docs.yaml)
+
